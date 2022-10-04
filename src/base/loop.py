@@ -35,10 +35,10 @@ class LoopMngr:
                 for post in data['latest_posts'] 
                 if post not in self.last_gotten_posts
               ]
-              
+              self.last_gotten_posts = data['latest_posts']
               await asyncio.gather(*tasks)
               
-              self.last_gotten_posts = data['latest_posts']
+              
               
           except asyncio.TimeoutError:
             pass #ignore 
@@ -51,14 +51,4 @@ class LoopMngr:
           finally:
             await asyncio.sleep(4)
 
-
-
-
-if __name__ == "__main__":
-  
-  async def handle_post(post):
-    print(f"{post['username']}: {post['raw']}")
-    
-  mngr = LoopMngr(server_url="https://forums.meower.org/", handle_post=handle_post, loop=None)
-  asyncio.run(mngr.start())
-  
+__all__ = ['LoopMngr']

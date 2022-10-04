@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "DiscorseBotLib"
-version = "0.0.0"
+version = "1.0.0"
 description = "A bot lib for Discorse based Fourms"
 authors = ["ShowierData9978"]
-
+packages = [
+    {include = "src"}
+]
 [tool.poetry.dependencies]
 python = "^3.8"
 aiohttp = "^3.8.3"
