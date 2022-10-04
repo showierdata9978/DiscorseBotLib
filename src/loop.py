@@ -55,6 +55,7 @@ class LoopMngr:
 
 
 if __name__ == "__main__":
+  
   async def handle_post(post):
     print(f"{post['username']}: {post['raw']}")
     
